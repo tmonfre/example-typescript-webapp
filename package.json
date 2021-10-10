@@ -10,7 +10,7 @@
     "build:run": "nodemon app.js",
     "build": "npm run clean; NODE_ENV=production webpack --color --config webpack.prod.js",
     "clean": "rimraf build",
-    "docker:local": "docker-compose --profile debug up",
+    "docker:debug": "docker-compose --profile debug up",
     "docker:prod": "docker-compose --profile prod up"
   },
   "repository": {
