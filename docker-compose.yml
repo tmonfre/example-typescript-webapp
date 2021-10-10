@@ -1,10 +1,27 @@
 version: '3'
 services:
-  webapp:
+  webapp-prod:
     build: .
     ports: 
       - "8080:8080"
+    profiles:
+      - "prod"
+
+  webapp-debug:
+    build: .
+    command: "npm run build:run"
+    ports:
+      - "8080:8080"
+    profiles:
+      - "debug"
+    volumes:
+      - ".:/app" 
+      - "nodemodules:/app/node_modules" 
+      
   server:
     image: "tmonfre/3q-server:latest"
     ports:
       - "9090:9090"
+
+volumes:
+  nodemodules:
