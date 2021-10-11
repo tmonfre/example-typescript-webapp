@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  webapp-debug:
+  webapp:
     build: .
     command: "npm run build:run"
     restart: unless-stopped
@@ -9,9 +9,9 @@ services:
     volumes:
       - ".:/app"
     depends_on:
-      - server-debug
+      - server
 
-  server-debug:
+  server:
     build: ../3q-server
     command: "npm start"
     restart: unless-stopped
@@ -24,9 +24,9 @@ services:
     volumes:
       - "../3q-server:/app"
     depends_on:
-      - db-debug
+      - db
 
-  db-debug:
+  db:
     image: "mysql"
     restart: unless-stopped
     ports:
@@ -36,7 +36,7 @@ services:
     env_file:
       - "../3q-server/.env"
     volumes:
-      - "db_debug:/var/lib/mysql"
+      - "db:/var/lib/mysql"
 
 volumes:
-  db_debug:
+  db:

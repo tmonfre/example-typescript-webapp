@@ -1,22 +1,22 @@
 version: '3.8'
 services:
-  webapp-prod:
+  webapp:
     build: .
     restart: unless-stopped
     ports: 
       - "8080:8080"
     depends_on:
-      - server-prod
+      - server
       
-  server-prod:
+  server:
     build: "../3q-server"
     restart: unless-stopped
     ports:
       - "9090:9090"
     depends_on:
-      - db-prod
+      - db
 
-  db-prod:
+  db:
     image: "mysql"
     restart: unless-stopped
     ports:
@@ -26,7 +26,7 @@ services:
     env_file:
       - "../3q-server/.env"
     volumes:
-      - "db_prod:/var/lib/mysql"
+      - "db:/var/lib/mysql"
 
 volumes:
-  db_prod:
+  db:
