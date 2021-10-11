@@ -1,34 +1,15 @@
 version: '3.8'
 services:
-  webapp-prod:
-    build: .
-    ports: 
-      - "8080:8080"
-    profiles:
-      - "prod"
-    depends_on:
-      - server-prod
-
   webapp-debug:
     build: .
     command: "npm run build:run"
+    restart: unless-stopped
     ports:
       - "8080:8080"
-    profiles:
-      - "debug"
     volumes:
       - ".:/app"
     depends_on:
       - server-debug
-      
-  server-prod:
-    build: "../3q-server"
-    ports:
-      - "9090:9090"
-    profiles:
-      - "prod"
-    depends_on:
-      - db-prod
 
   server-debug:
     build: ../3q-server
@@ -40,8 +21,6 @@ services:
       - "../3q-server/.env"
     stdin_open: true
     tty: true
-    profiles:
-      - "debug"
     volumes:
       - "../3q-server:/app"
     depends_on:
@@ -56,25 +35,8 @@ services:
       - 3306
     env_file:
       - "../3q-server/.env"
-    profiles:
-      - "debug"
     volumes:
       - "db_debug:/var/lib/mysql"
 
-  db-prod:
-    image: "mysql"
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    expose:
-      - 3306
-    env_file:
-      - "../3q-server/.env"
-    profiles:
-      - "prod"
-    volumes:
-      - "db_prod:/var/lib/mysql"
-
 volumes:
   db_debug:
-  db_prod:
