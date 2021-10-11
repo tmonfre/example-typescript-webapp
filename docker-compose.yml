@@ -15,13 +15,21 @@ services:
     profiles:
       - "debug"
     volumes:
-      - ".:/app" 
-      - "nodemodules:/app/node_modules" 
+      - ".:/app"
       
-  server:
-    image: "tmonfre/3q-server:latest"
+  server-prod:
+    build: "../3q-server"
     ports:
       - "9090:9090"
+    profiles:
+      - "prod"
 
-volumes:
-  nodemodules:
+  server-debug:
+    build: ../3q-server
+    command: "npm start"
+    ports:
+      - "9090:9090"
+    profiles:
+      - "debug"
+    volumes:
+      - "../3q-server:/app"

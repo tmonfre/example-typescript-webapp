@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import { getText } from '../../utils';
+import { getBasicData } from '../../utils';
 
 const Home = () => {
-  const [text, setText] = useState<string>('');
+  const [response, setResponse] = useState<Record<string, unknown>>();
 
   useEffect(() => {
-    getText().then(setText);
+    getBasicData().then(setResponse);
   }, []);
 
   return (
     <div id="home-container">
       <h1>Home</h1>
-      <p>{text}</p>
+      {response && <p>{JSON.stringify(response)}</p>}
     </div>
   );
 };

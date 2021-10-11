@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 /* eslint-disable import/prefer-default-export */
-async function getText(): Promise<string> {
-  const { data } = await axios.get('http://localhost:9090');
+async function getBasicData(): Promise<Record<string, unknown>> {
+  const { data: { data } } = await axios.get('http://localhost:9090');
   return data;
 }
 
 export {
-  getText,
+  getBasicData,
 };
