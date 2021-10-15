@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import { Props } from './index.d';
+import { PageRoutes } from '../../constants';
 
 import './styles.scss';
 
@@ -13,7 +16,7 @@ const NavBar = (props: Props): JSX.Element => {
 
   return (
     <nav>
-      <h4>Nav</h4>
+      <Link to={PageRoutes.Home}>Nav</Link>
       {isLoggedIn && <p>{`Welcome, ${firstName}`}</p>}
       {isLoggedIn && (
         <button type="button" onClick={signOutUser}>

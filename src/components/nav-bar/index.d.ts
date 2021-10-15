@@ -1,4 +1,4 @@
-import { User } from '../../services/api/user/types';
+import { User } from '../../services/api/user/index.d';
 
 export type StateProps = {
     user: User | Record<string, never>

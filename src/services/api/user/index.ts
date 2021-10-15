@@ -13,7 +13,7 @@ import {
   IGetUserResponse,
   IUpdateUserRequest,
   IUpdateUserResponse,
-} from './types';
+} from './index.d';
 
 import { getAuthToken } from '../../../utils';
 
@@ -68,7 +68,7 @@ class UserRequests {
       const { data } = await createApiRequest({
         method: RequestType.Get,
         url: `${this.baseEndpoint}/id/${id}`,
-        headers: { [HeaderType.Authorization]: getAuthToken() },
+        headers: { [HeaderType.Authorization]: `Bearer ${getAuthToken()}` },
       });
 
       return data;
@@ -85,7 +85,7 @@ class UserRequests {
         method: RequestType.Get,
         url: `${this.baseEndpoint}/auth`,
         data: request,
-        headers: { [HeaderType.Authorization]: getAuthToken() },
+        headers: { [HeaderType.Authorization]: `Bearer ${getAuthToken()}` },
       });
 
       return data;

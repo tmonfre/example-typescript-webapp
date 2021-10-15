@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { Buffer } from 'buffer';
 
 import { ApiConfig, REQUEST_TIMEOUT } from '../../constants';
 
@@ -29,7 +30,6 @@ export async function createApiRequest(config: ApiRequestConfig): Promise<AxiosR
   return axios({
     baseURL: ApiConfig.baseUrl,
     timeout: REQUEST_TIMEOUT,
-    withCredentials: true,
     ...config,
   });
 }
