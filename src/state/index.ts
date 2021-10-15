@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ThunkDispatch } from 'redux-thunk';
 
 import { IUserState } from './reducers/user';
