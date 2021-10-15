@@ -13,10 +13,10 @@ import {
 } from './components';
 
 import { PageRoutes } from './constants';
-import { AppDispatch, State } from './state';
+import { AppDispatch } from './state';
 import { UserActions } from './state/actions';
 
-import { Props, StateProps, DispatchProps } from './app.d';
+import { Props, DispatchProps } from './app.d';
 
 const App = (props: Props): JSX.Element => {
   useEffect(() => {
@@ -38,20 +38,10 @@ const App = (props: Props): JSX.Element => {
   );
 };
 
-const mapStateToProps = (state: State): StateProps => {
-  const {
-    user,
-  } = state;
-
-  return {
-    user,
-  };
-};
-
 const mapDispatchToProps = (dispatch: AppDispatch): DispatchProps => ({
   fetchUserData: () => {
     dispatch(UserActions.fetchUserData());
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

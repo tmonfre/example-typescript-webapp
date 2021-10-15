@@ -1,7 +1,5 @@
-import { IUserState } from './state/reducers/user';
-
 export type StateProps = {
-    user: IUserState
+
 }
 
 export type DispatchProps = {
