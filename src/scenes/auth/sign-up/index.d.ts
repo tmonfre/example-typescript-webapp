@@ -1,11 +1,9 @@
-import { IUserState } from './state/reducers/user';
-
 export type StateProps = {
-    user: IUserState
+
 }
 
 export type DispatchProps = {
-    fetchUserData: () => void
+    signUpUser: (email: string, password: string, firstName: string, lastName: string) => void
 }
 
 export interface Props extends StateProps, DispatchProps {}

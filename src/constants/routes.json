@@ -1,0 +1,8 @@
+{
+    "Home": "/",
+    "Account": "/account",
+    "Auth": {
+        "SignIn": "/auth/sign-in",
+        "SignUp": "/auth/sign-up"
+    }
+}

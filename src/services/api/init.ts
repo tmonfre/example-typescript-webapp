@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { apiConfig, REQUEST_TIMEOUT } from '../../constants';
+import { ApiConfig, REQUEST_TIMEOUT } from '../../constants';
 
 export enum RequestType {
     Get = 'get',
@@ -27,7 +27,7 @@ export interface ApiRequestConfig {
  */
 export async function createApiRequest(config: ApiRequestConfig): Promise<AxiosResponse> {
   return axios({
-    baseURL: apiConfig.baseUrl,
+    baseURL: ApiConfig.baseUrl,
     timeout: REQUEST_TIMEOUT,
     withCredentials: true,
     ...config,

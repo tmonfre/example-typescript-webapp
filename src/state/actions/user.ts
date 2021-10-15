@@ -87,6 +87,24 @@ export function signInUser(email: string, password: string) {
 }
 
 /**
+ * @description action creator for signing user out
+ */
+export function signOutUser() {
+  return (dispatch: Dispatch): void => {
+    setUserId('');
+    setAuthToken('');
+
+    dispatch({
+      type: UserActionTypes.FETCH_USER_DATA,
+      payload: {
+        status: RequestStates.Success,
+        data: {},
+      },
+    });
+  };
+}
+
+/**
  * @description action creator for fetching user data from token
  */
 export function fetchUserData() {

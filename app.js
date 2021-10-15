@@ -6,8 +6,9 @@ const app = express();
 
 app.use(express.static(`${__dirname}/build`));
 
-app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, './build/index.html'));
+app.get('*', (req, res) => {
+  const file = req.url.includes('index.bundle.js') ? './build/index.bundle.js' : './build/index.html';
+  res.sendFile(path.join(__dirname, file));
 });
 
 app.listen(port, '0.0.0.0', (err) => {

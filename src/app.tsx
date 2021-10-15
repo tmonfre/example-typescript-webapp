@@ -3,29 +3,34 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import {
+  Auth,
   Home,
   NotFound,
 } from './scenes';
+
+import {
+  NavBar,
+} from './components';
 
 import { PageRoutes } from './constants';
 import { AppDispatch, State } from './state';
 import { UserActions } from './state/actions';
 
-import { AppTypes, StateProps, DispatchProps } from './app.d';
+import { Props, StateProps, DispatchProps } from './app.d';
 
-const App = (props: AppTypes): JSX.Element => {
-  const { user } = props;
-
+const App = (props: Props): JSX.Element => {
   useEffect(() => {
     props.fetchUserData();
   }, []);
 
   return (
     <Router>
+      <NavBar />
       <div className="content">
-        <p>{user ? JSON.stringify(user) : ''}</p>
         <Switch>
           <Route exact path={PageRoutes.Home} component={Home} />
+          <Route path={PageRoutes.Auth.SignIn} component={Auth.SignIn} />
+          <Route path={PageRoutes.Auth.SignUp} component={Auth.SignUp} />
           <Route component={NotFound} />
         </Switch>
       </div>

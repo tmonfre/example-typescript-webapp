@@ -1,4 +1,5 @@
-import apiConfig from './api-config.json';
+import ApiConfig from './api-config.json';
+import PageRoutes from './routes.json';
 
 export const REQUEST_TIMEOUT = 1000;
 
@@ -13,10 +14,7 @@ export enum RequestStates {
   Failure = 'FAILURE'
 }
 
-export enum PageRoutes {
-  Home = '/'
-}
-
 export {
-  apiConfig,
+  ApiConfig,
+  PageRoutes,
 };
