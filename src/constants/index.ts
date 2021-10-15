@@ -13,6 +13,10 @@ export enum RequestStates {
   Failure = 'FAILURE'
 }
 
+export enum PageRoutes {
+  Home = '/'
+}
+
 export {
   apiConfig,
 };

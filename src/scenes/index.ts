@@ -1,6 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import Home from './home';
+import NotFound from './not-found';
 
 export {
   Home,
+  NotFound,
 };

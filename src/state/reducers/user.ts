@@ -1,4 +1,4 @@
-import { IReduxAction } from './types';
+import { IReduxAction } from '.';
 import { ActionTypes } from '../actions';
 import { User } from '../../services/api/user/types';
 

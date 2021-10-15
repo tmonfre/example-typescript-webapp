@@ -3,7 +3,13 @@ import { Dispatch } from 'redux';
 import { RequestStates } from '../../constants';
 import { UserActionTypes } from './types';
 import { api } from '../../services';
-import { setUserId, setAuthToken } from '../../utils';
+
+import {
+  setUserId,
+  setAuthToken,
+  getAuthToken,
+  getUserId,
+} from '../../utils';
 
 /**
  * @description action creator for user sign up
@@ -60,6 +66,40 @@ export function signInUser(email: string, password: string) {
 
       setUserId(user.id);
       setAuthToken(token);
+
+      dispatch({
+        type: UserActionTypes.FETCH_USER_DATA,
+        payload: {
+          status: RequestStates.Success,
+          data: user,
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: UserActionTypes.FETCH_USER_DATA,
+        payload: {
+          status: RequestStates.Failure,
+          error,
+        },
+      });
+    }
+  };
+}
+
+/**
+ * @description action creator for fetching user data from token
+ */
+export function fetchUserData() {
+  return async (dispatch: Dispatch): Promise<void> => {
+    const userId = getUserId();
+    const token = getAuthToken();
+
+    if (!(userId && token)) return;
+
+    dispatch({ type: UserActionTypes.FETCH_USER_DATA, payload: { status: RequestStates.Pending } });
+
+    try {
+      const { data: user } = await api.users.getUserById(userId);
 
       dispatch({
         type: UserActionTypes.FETCH_USER_DATA,
