@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import {
+  Account,
   Auth,
   Home,
   NotFound,
@@ -31,6 +32,7 @@ const App = (props: Props): JSX.Element => {
           <Route exact path={PageRoutes.Home} component={Home} />
           <Route path={PageRoutes.Auth.SignIn} component={Auth.SignIn} />
           <Route path={PageRoutes.Auth.SignUp} component={Auth.SignUp} />
+          <Route path={PageRoutes.Account.Details} component={Account.Details} />
           <Route component={NotFound} />
         </Switch>
       </div>

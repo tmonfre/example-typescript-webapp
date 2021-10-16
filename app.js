@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static(`${__dirname}/build`));
 
 app.get('*', (req, res) => {
-  const file = req.url.includes('index.bundle.js') ? './build/index.bundle.js' : './build/index.html';
+  const file = !req.url.includes('.') ? './build/index.html' : `./build/${req.url.split('/').pop()}`;
   res.sendFile(path.join(__dirname, file));
 });
 

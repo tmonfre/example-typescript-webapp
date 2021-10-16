@@ -1,6 +1,9 @@
 {
     "Home": "/",
-    "Account": "/account",
+    "Account": {
+        "Base": "/account",
+        "Details": "/account/details"
+    },
     "Auth": {
         "SignIn": "/auth/sign-in",
         "SignUp": "/auth/sign-up"

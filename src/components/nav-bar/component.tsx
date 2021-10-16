@@ -5,24 +5,27 @@ import { PageRoutes } from '../../constants';
 
 import './styles.scss';
 
+import menuImg from './menu.png';
+
 const NavBar = (props: Props): JSX.Element => {
   const {
     isLoggedIn,
-    signOutUser,
     user: {
       firstName,
     },
   } = props;
 
+  function handleMenuButtonClick() {
+    console.log('open menu');
+  }
+
   return (
     <nav>
-      <Link to={PageRoutes.Home}>Nav</Link>
-      {isLoggedIn && <p>{`Welcome, ${firstName}`}</p>}
-      {isLoggedIn && (
-        <button type="button" onClick={signOutUser}>
-          Sign Out
-        </button>
-      )}
+      {isLoggedIn && <p>{`Welcome back, ${firstName}`}</p>}
+      <Link to={PageRoutes.Home}>3Q Mindfulness Companion</Link>
+      <button type="button" onClick={handleMenuButtonClick}>
+        <img src={menuImg} id="menu-button" alt="menu button" />
+      </button>
     </nav>
   );
 };
