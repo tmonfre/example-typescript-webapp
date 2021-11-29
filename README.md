@@ -1,6 +1,6 @@
-# 3Q Web Application
+# Example Web Application
 
-This is the 3Q web application, built with React, TypeScript, webpack, and babel. It is built and served with [Docker](https://www.docker.com/).
+This is an example web application built with React, TypeScript, webpack, and babel. It is built and served with [Docker](https://www.docker.com/).
 
 ## Running Locally
 
@@ -8,7 +8,7 @@ Install dependencies with `npm i`, then run `npm run build:watch`. In a separate
 
 This will build several Docker images for the application, then start a container with several services. It uses the debug profile to cause the server to restart when changes are made to the source code. The build watch command re-compiles the application when source code changes, and the `npm run build:run` command (called in `docker-compose.yml`) runs `nodemon` to restart the web server when the compiled files change.
 
-Note: your local copy of the [server repository](https://github.com/tmonfre/3q-server) must be in the same directory as your local copy of this repository (e.g. the path to the server repo from this directory should be `../3q-server`).
+Note: your local copy of the [server repository](https://github.com/tmonfre/example-typescript-server) must be in the same directory as your local copy of this repository. The default names used in the Docker compose files are "webapp" and "server".
 
 ## Deploying
 

@@ -30,8 +30,8 @@ const App = (props: Props): JSX.Element => {
       <div className="content">
         <Switch>
           <Route exact path={PageRoutes.Home} component={Home} />
-          <Route path={PageRoutes.Auth.SignIn} component={Auth.SignIn} />
-          <Route path={PageRoutes.Auth.SignUp} component={Auth.SignUp} />
+          <Route path={PageRoutes.Auth.Login} component={Auth.Login} />
+          <Route path={PageRoutes.Auth.Register} component={Auth.Register} />
           <Route path={PageRoutes.Account.Details} component={Account.Details} />
           <Route component={NotFound} />
         </Switch>

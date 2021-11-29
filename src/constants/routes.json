@@ -5,7 +5,7 @@
         "Details": "/account/details"
     },
     "Auth": {
-        "SignIn": "/auth/sign-in",
-        "SignUp": "/auth/sign-up"
+        "Login": "/auth/login",
+        "Register": "/auth/register"
     }
 }

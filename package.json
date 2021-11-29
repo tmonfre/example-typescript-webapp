@@ -1,7 +1,7 @@
 {
-  "name": "3q-webapp",
+  "name": "example-typescript-webapp",
   "version": "1.0.0",
-  "description": "3Q Web Application",
+  "description": "Example Web Application",
   "main": "index.js",
   "scripts": {
     "test": "eslint \"**/*.{ts,tsx}\"",
@@ -10,19 +10,19 @@
     "build:run": "nodemon app.js",
     "build": "npm run clean; NODE_ENV=production webpack --color --config webpack.prod.js",
     "clean": "rimraf build",
-    "docker:debug": "docker-compose -f docker-compose.debug.yml -p 3Q_debug up",
-    "docker:prod": "docker-compose -f docker-compose.prod.yml -p 3Q_prod up"
+    "docker:debug": "docker-compose -f docker-compose.debug.yml -p example_webapp_debug up",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml -p example_webapp_prod up"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tmonfre/3Q-webapp.git"
+    "url": "git+https://github.com/tmonfre/example-typescript-webapp.git"
   },
   "author": "Thomas Monfre",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tmonfre/3Q-webapp/issues"
+    "url": "https://github.com/tmonfre/example-typescript-webapp/issues"
   },
-  "homepage": "https://github.com/tmonfre/3Q-webapp#readme",
+  "homepage": "https://github.com/tmonfre/example-typescript-webapp#readme",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",

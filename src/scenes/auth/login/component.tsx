@@ -3,7 +3,7 @@ import { Props } from './index.d';
 
 import './styles.scss';
 
-const SignIn = (props: Props): JSX.Element => {
+const Login = (props: Props): JSX.Element => {
   const {
     signInUser,
   } = props;
@@ -21,18 +21,18 @@ const SignIn = (props: Props): JSX.Element => {
 
   return (
     <div id="sign-in-container">
-      <h2>Sign In</h2>
+      <h2>Login</h2>
       <div id="basic-auth-container">
         <input value={email} onChange={changeHandler(setEmail)} placeholder="Email" />
         <input value={password} onChange={changeHandler(setPassword)} placeholder="Password" type="password" />
       </div>
       <div id="sign-up-cta-container">
         <button type="button" onClick={onSignInClick}>
-          Sign Up
+          Login
         </button>
       </div>
     </div>
   );
 };
 
-export default SignIn;
+export default Login;

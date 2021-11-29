@@ -22,7 +22,7 @@ const NavBar = (props: Props): JSX.Element => {
   return (
     <nav>
       {isLoggedIn && <p>{`Welcome back, ${firstName}`}</p>}
-      <Link to={PageRoutes.Home}>3Q Mindfulness Companion</Link>
+      <Link to={PageRoutes.Home}>Example Webapp</Link>
       <button type="button" onClick={handleMenuButtonClick}>
         <img src={menuImg} id="menu-button" alt="menu button" />
       </button>

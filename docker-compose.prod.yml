@@ -9,7 +9,7 @@ services:
       - server
       
   server:
-    build: "../3q-server"
+    build: "../server"
     restart: unless-stopped
     ports:
       - "9090:9090"
@@ -24,7 +24,7 @@ services:
     expose:
       - 3306
     env_file:
-      - "../3q-server/.env"
+      - "../server/.env"
     volumes:
       - "db:/var/lib/mysql"
 
