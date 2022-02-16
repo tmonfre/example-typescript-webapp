@@ -1,32 +1,36 @@
 version: '3.8'
 services:
   webapp:
-    build: .
-    restart: unless-stopped
-    ports: 
-      - "8080:8080"
-    depends_on:
-      - server
-      
-  server:
-    build: "../server"
+    build:
+      context: .
+      target: nginx
+      # target: prod
     restart: unless-stopped
     ports:
-      - "9090:9090"
-    depends_on:
-      - db
+      # - "8080:8080"
+      - "80:80"
+#     depends_on:
+#       - server
 
-  db:
-    image: "mysql"
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    expose:
-      - 3306
-    env_file:
-      - "../server/.env"
-    volumes:
-      - "db:/var/lib/mysql"
+#   server:
+#     build: "../server"
+#     restart: unless-stopped
+#     ports:
+#       - "9090:9090"
+#     depends_on:
+#       - db
 
-volumes:
-  db:
+#   db:
+#     image: "mysql"
+#     restart: unless-stopped
+#     ports:
+#       - "3306:3306"
+#     expose:
+#       - 3306
+#     env_file:
+#       - "../server/.env"
+#     volumes:
+#       - "db:/var/lib/mysql"
+
+# volumes:
+#   db:
