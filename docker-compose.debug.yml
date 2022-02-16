@@ -1,42 +1,44 @@
 version: '3.8'
 services:
   webapp:
-    build: .
-    command: "npm run build:run"
+    build:
+      context: .
+      target: dev
     restart: unless-stopped
     ports:
       - "8080:8080"
     volumes:
-      - ".:/app"
-    depends_on:
-      - server
+      - "./src:/app/src"
+      - "./app.js:/app/app.js"
+#     depends_on:
+#       - server
 
-  server:
-    build: ../server
-    command: "npm start"
-    restart: unless-stopped
-    ports:
-      - "9090:9090"
-    env_file:
-      - "../server/.env"
-    stdin_open: true
-    tty: true
-    volumes:
-      - "../server:/app"
-    depends_on:
-      - db
+#   server:
+#     build: ../server
+#     command: "npm start"
+#     restart: unless-stopped
+#     ports:
+#       - "9090:9090"
+#     env_file:
+#       - "../server/.env"
+#     stdin_open: true
+#     tty: true
+#     volumes:
+#       - "../server:/app"
+#     depends_on:
+#       - db
 
-  db:
-    image: "mysql"
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    expose:
-      - 3306
-    env_file:
-      - "../server/.env"
-    volumes:
-      - "db:/var/lib/mysql"
+#   db:
+#     image: "mysql"
+#     restart: unless-stopped
+#     ports:
+#       - "3306:3306"
+#     expose:
+#       - 3306
+#     env_file:
+#       - "../server/.env"
+#     volumes:
+#       - "db:/var/lib/mysql"
 
-volumes:
-  db:
+# volumes:
+#   db:
